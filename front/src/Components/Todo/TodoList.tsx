@@ -1,4 +1,4 @@
-import React ,{ useState , useEffect , useCallback } from 'react';
+import React ,{ useCallback } from 'react';
 
 import { useSelector , useDispatch } from 'react-redux';
 import { RootState } from '../../modules';
@@ -31,7 +31,7 @@ const TodoList = () => {
     const dispatch = useDispatch();
     
     const classes = useStyles();
-    // const [checked, setChecked] = useState(true);
+
 
     const handleChange = useCallback((id: number) => (event: React.ChangeEvent<HTMLInputElement>) => {
         // setChecked(event.target.checked);

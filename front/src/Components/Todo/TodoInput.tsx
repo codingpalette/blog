@@ -2,8 +2,7 @@ import React , { useState , useCallback , FormEvent , ChangeEvent } from 'react'
 import styled from 'styled-components';
 
 // 리덕스
-import { useSelector , useDispatch } from 'react-redux';
-import { RootState } from '../../modules';
+import { useDispatch } from 'react-redux';
 import { ADD_TODO_REQUEST } from '../../modules/todos';
 
 // 머테리얼
@@ -40,7 +39,7 @@ const TodoInput = () => {
         });
         console.log(value);
         setValue('');
-    }, [value])
+    }, [value , dispatch])
 
     return(
         <>

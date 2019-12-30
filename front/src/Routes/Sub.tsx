@@ -1,14 +1,14 @@
 import React , { useEffect } from 'react';
 import styled from 'styled-components';
 import { useSelector , useDispatch } from 'react-redux';
-import { RootState } from '../../modules';
-import { LOAD_TODO_REQUEST } from '../../modules/todos';
+import { RootState } from '../modules';
+import { LOAD_TODO_REQUEST } from '../modules/todos';
 
 const Container = styled.div`
     margin-top:100px;
 `;
 
-const SubPresenter = () => {
+const Sub = () => {
 
     const { ListContent , isTodoLoad } = useSelector((state: RootState) => state.todos);
     const dispatch = useDispatch();
@@ -17,7 +17,7 @@ const SubPresenter = () => {
         dispatch({
             type : LOAD_TODO_REQUEST,
         })
-    }, [])
+    }, [dispatch])
 
     console.log(ListContent)
 
@@ -35,4 +35,4 @@ const SubPresenter = () => {
     )
 };
 
-export default SubPresenter
+export default Sub

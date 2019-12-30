@@ -21,7 +21,7 @@ const Card = styled.div`
 `;
 
 
-const BlogPresenter = () => {
+const Blog = () => {
     
     return(
         <>  
@@ -36,4 +36,4 @@ const BlogPresenter = () => {
     )
 };
 
-export default BlogPresenter
+export default Blog
