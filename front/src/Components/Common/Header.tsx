@@ -1,12 +1,12 @@
 import React , {useState} from 'react';
-import { Link , withRouter } from 'react-router-dom'
+import { Link , withRouter } from 'react-router-dom';
+
+import AuthMenu from '../Auth/AuthMenu';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import MenuItem from '@material-ui/core/MenuItem';
-import Menu from '@material-ui/core/Menu';
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
@@ -15,7 +15,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MoreIcon from '@material-ui/icons/MoreVert';
+
 
 
 
@@ -39,8 +39,8 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         linkColor : {
             textDecoration : 'none',
-            color :"inherit"
-
+            color :"inherit",
+            width:'100%',
         }
     }),
 );
@@ -48,7 +48,7 @@ const useStyles = makeStyles((theme: Theme) =>
 const Header = () => {
     const classes = useStyles();
     const [auth] = useState(true);
-    const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+    
     const [state, setState] = useState({
         top: false,
         left: false,
@@ -56,15 +56,7 @@ const Header = () => {
         right: false,
     });
 
-    const open = Boolean(anchorEl);
-
-    const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
-        setAnchorEl(event.currentTarget);
-    };
-
-    const handleClose = () => {
-        setAnchorEl(null);
-    };
+    
 
     type DrawerSide = 'top' | 'left' | 'bottom' | 'right';
     const toggleDrawer = (side: DrawerSide, open: boolean) => (
@@ -144,35 +136,9 @@ const Header = () => {
                         Photos
                     </Typography>
                     {auth && (
-                        <div>
-                            <IconButton
-                                aria-label="account of current user"
-                                aria-controls="menu-appbar"
-                                aria-haspopup="true"
-                                onClick={handleMenu}
-                                color="inherit"
-                            >
-                                <MoreIcon />
-                            </IconButton>
-                            <Menu
-                                id="menu-appbar"
-                                anchorEl={anchorEl}
-                                anchorOrigin={{
-                                    vertical: 'top',
-                                    horizontal: 'right',
-                                }}
-                                keepMounted
-                                transformOrigin={{
-                                    vertical: 'top',
-                                    horizontal: 'right',
-                                }}
-                                open={open}
-                                onClose={handleClose}
-                            >
-                                <MenuItem onClick={handleClose}>로그인</MenuItem>
-                                <MenuItem onClick={handleClose}>My account</MenuItem>
-                            </Menu>
-                        </div>
+
+                        <AuthMenu></AuthMenu>
+                        
                     )}
                 </Toolbar>
             </AppBar>
