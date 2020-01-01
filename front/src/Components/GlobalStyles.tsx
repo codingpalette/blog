@@ -16,6 +16,7 @@ const globalStyles = createGlobalStyle`
         margin:0 auto;
         padding:68px 20px 20px;
         box-sizing:border-box;
+        position:relative;
     };
     html body *{
         font-family: 'NanumBarunGothic', sans-serif !important;

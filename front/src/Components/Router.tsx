@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter , Route , Redirect , Switch } from 'react-router-dom';
 import Header from './Common/Header';
-import {Home , Login , Blog , Sub , Todo} from '../Routes'
+import {Home , Login , Blog , Sub , Todo , PostCreate , Admin} from '../Routes'
 
 
 
@@ -15,6 +15,8 @@ const Router: React.FC = () => (
                 <Route path='/sub' component={Sub}></Route>
                 <Route path='/blog' component={Blog}></Route>
                 <Route path='/todo' component={Todo}></Route>
+                <Route path='/post_create' component={PostCreate}></Route>
+                <Route path='/admin' component={Admin}></Route>
                 <Redirect from='*' to='/'></Redirect>
              </Switch>
         </>

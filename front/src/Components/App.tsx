@@ -10,14 +10,14 @@ const App = () => {
         palette: {
             type: 'light', // Switching the dark mode on is a single property value change.
             primary: {
-                light: '#757ce8',
+                light: '#ec407a',
                 main:  '#ec407a',
-                dark: '#002884',
+                dark: '#ec407a',
                 contrastText: '#fff',
             },
         },
     });
-    console.log(theme.palette.type)
+    console.log(theme.palette.primary)
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />

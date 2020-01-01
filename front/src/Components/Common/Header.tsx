@@ -15,6 +15,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
+import PostAddIcon from '@material-ui/icons/PostAdd';
 
 
 
@@ -113,6 +114,14 @@ const Header = () => {
                 ))} */}
             </List>
             <Divider />
+            <List>
+                <Link to="/post_create" className={classes.linkColor}>
+                    <ListItem button>
+                        <ListItemIcon><PostAddIcon /></ListItemIcon>
+                        <ListItemText primary="새 포스트 작성" />
+                    </ListItem>
+                </Link>
+            </List>
         </div>
     );
 

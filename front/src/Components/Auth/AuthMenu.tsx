@@ -67,13 +67,23 @@ const AuthMenu = () => {
                     open={open}
                     onClose={handleClose}
                 >
-                    <MenuItem onClick={handleClose}> 
-                        {logind 
-                            ? <span>로그아웃</span> 
-                            : <Link to="/login" className={classes.linkColor}>로그인</Link>   
-                        }
-                        
-                    </MenuItem>
+                    {logind
+                        ? (
+                            <MenuItem onClick={handleClose}>
+                                <span>로그아웃</span>
+                            </MenuItem>
+                        )
+                        : (
+                            <div>
+                                <MenuItem onClick={handleClose}>
+                                    <Link to="/login" className={classes.linkColor}>로그인</Link>  
+                                </MenuItem>
+                                <MenuItem onClick={handleClose}>
+                                    <Link to="/admin" className={classes.linkColor}>관리자</Link>  
+                                </MenuItem>
+                            </div>
+                        )
+                    }
                     <MenuItem onClick={handleClose}>My account</MenuItem>
                 </Menu>
             </div>
