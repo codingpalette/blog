@@ -4,25 +4,34 @@ import styled from 'styled-components';
 import Quill from 'quill';
 import 'quill/dist/quill.bubble.css';
 
+import TextField from '@material-ui/core/TextField';
+import Button from '@material-ui/core/Button';
+
+
+
 
 const EditorBlock = styled.div`
     /* 페이지 위 아래 여백 지정 */
-    padding-top: 5rem;
-    padding-bottom: 5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 `;
 
-const TitleInput = styled.input`
-    font-size: 3rem;
-    outline: none;
-    padding-bottom: 0.5rem;
-    border: none;
-    border-bottom: 1px solid #000;
-    margin-bottom: 2rem;
-    width: 100%;
+const TitleInput = styled(TextField)`
+    width:100%;
 `;
+
+const BtnBox = styled.div`
+    display:flex;
+    justify-content:flex-end;
+    .btn{
+        margin:0 5px;
+    }
+`;
+
 const QuillWrapper = styled.div`
     /* 최소 크기 지정 및 padding 제거 */
     .ql-editor {
+        margin-top:30px;
         padding: 0;
         min-height: 320px;
         font-size: 1.125rem;
@@ -60,12 +69,19 @@ const Editor = () => {
     return(
         <>
             <EditorBlock>
-                <TitleInput
-                    placeholder="제목을 입력하세요"
+                <TitleInput id="outlined-basic" variant="outlined" 
+                    label="제목을 입력하세요..."  
                 />
                 <QuillWrapper>
                     <div ref={quillElement} />
                 </QuillWrapper>
+                <BtnBox>
+                    <Button variant="contained" className="btn" color="primary">
+                        작성하기
+                    </Button>
+                    <Button variant="contained" className="btn">취소</Button>
+     
+                </BtnBox>
             </EditorBlock>
         </>
     )
