@@ -1,5 +1,6 @@
 import Router from 'koa-router';
 import * as postsCtrl from './posts.ctrl';
+import checkLoggedIn from '../../lib/checkLoggedIn';
 const posts = new Router();
 
 // const printInfo = ctx => {
@@ -11,10 +12,10 @@ const posts = new Router();
 // };
 
 posts.get('/' , postsCtrl.list);
-posts.post('/' , postsCtrl.write);
-posts.get('/:id' , postsCtrl.checkObjectId , postsCtrl.read);
-posts.delete('/:id' , postsCtrl.checkObjectId , postsCtrl.remove);
-posts.patch('/:id' , postsCtrl.checkObjectId , postsCtrl.update);
+posts.post('/' , checkLoggedIn , postsCtrl.write);
+posts.get('/:id' , postsCtrl.getPostById , postsCtrl.read);
+posts.delete('/:id' , checkLoggedIn , postsCtrl.getPostById , postsCtrl.checkOwnPost , postsCtrl.remove);
+posts.patch('/:id' , checkLoggedIn , postsCtrl.getPostById , postsCtrl.checkOwnPost , postsCtrl.update);
 
 
 // const post = new Router(); // /api/posts/:id
@@ -23,7 +24,7 @@ posts.patch('/:id' , postsCtrl.checkObjectId , postsCtrl.update);
 // post.delete('/:id' , postsCtrl.remove);
 // post.patch('/:id' , postsCtrl.update);
 
-// posts.use('/:id' , postsCtrl.checkObjectId, post.routes());
+// posts.use('/:id' , postsCtrl.getPostById, post.routes());
 
 
 export default posts;
