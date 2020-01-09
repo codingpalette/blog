@@ -1,8 +1,12 @@
 import React from 'react';
+import Button from '../components/common/Button';
 
 const WritePage = () => {
     return(
-        <div>포스트 리스트</div>
+        <div>
+            <Button>버튼</Button>
+        </div>
+
     )
 };
 
